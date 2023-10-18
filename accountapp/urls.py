@@ -1,5 +1,6 @@
 from django.urls import path
 
-urlspatterns = [
-    path
+app_name = "accountapp"
+
+urlpatterns = [
 ]
