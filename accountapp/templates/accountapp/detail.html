@@ -17,6 +17,11 @@
                     정보 변경하기
                 </p>
             </a>
+            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                <p>
+                    탈퇴
+                </p>
+            </a>
             {% endif %}
         </div>
     </div>
