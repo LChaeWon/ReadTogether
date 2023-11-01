@@ -5,9 +5,10 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 from accountapp.forms import AccountUpdateForm
+from bookapp.models import Book
 
 
 def main_page(request):
@@ -36,3 +37,9 @@ class AccountDeleteView(DeleteView):
     model = User
     success_url = reverse_lazy('accountapp:login')
     template_name = 'accountapp/delete.html'
+
+class BookListView(ListView):
+    model = Book
+    context_object_name = 'book_list'
+    template_name = 'accountapp/main_page.html'
+    paginate_by = 8

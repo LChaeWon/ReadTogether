@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_bootstrap5",
     "accountapp",
+    "bookapp",
 ]
 
 MIDDLEWARE = [
@@ -144,6 +145,10 @@ LOGIN_REDIRECT_URL = reverse_lazy('accountapp:main')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+MEDIA_URL = "/media/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
