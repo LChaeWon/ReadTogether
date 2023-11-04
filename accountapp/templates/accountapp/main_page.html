@@ -3,11 +3,11 @@
 {% block content %}
 <div>
     {% for book in book_list %}
-        <img src="{{ book.image.url }}"/>
-        {{ book.title }}
-        {{ book.writer }}
-        {{ book.keyword }}
+        <div><img src="{{ book.image.url }}"/></div>
+        <div>{{ book.title }}</div>
+        <div>{{ book.writer }}</div>
 
     {% endfor %}
+
 </div>
 {% endblock %}
