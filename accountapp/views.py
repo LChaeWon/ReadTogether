@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
 from accountapp.forms import AccountUpdateForm
@@ -43,3 +44,5 @@ class BookListView(ListView):
     context_object_name = 'book_list'
     template_name = 'accountapp/main_page.html'
     paginate_by = 8
+
+
