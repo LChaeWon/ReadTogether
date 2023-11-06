@@ -16,6 +16,15 @@
             <h2>
                 {{ target_book.keyword }}
             </h2>
+            {% if not bookshelf %}
+            <a href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
+                내 책장 담기
+            </a>
+            {% else %}
+            <a href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
+                내 책장에서 삭제
+            </a>
+            {% endif %}
         </div>
     </div>
 
