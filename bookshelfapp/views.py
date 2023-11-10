@@ -1,6 +1,7 @@
+import self as self
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView, RedirectView
+from django.views.generic import DetailView, RedirectView, ListView
 from django.urls import reverse
 
 from bookapp.models import Book
@@ -22,3 +23,12 @@ class BookShelfView(RedirectView):
             Bookshelf(user=user, book=book).save()
         return super(BookShelfView, self).get(request, *args, **kwargs)
     
+
+class BookshelfListView(ListView):
+    model = Book
+    context_object_name = 'mybook_list'
+    template_name = 'bookshelfapp/list.html'
+
+    def get_queryset(self):
+        mybook_list = Bookshelf.objects.filter(user=self.request.user)
+        return mybook_list

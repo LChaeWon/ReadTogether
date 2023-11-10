@@ -14,5 +14,7 @@ class BookDetailView(DetailView):
         user = self.request.user
         if user.is_authenticated:
             bookshelf = Bookshelf.objects.filter(user=user, book=book)
+        # object_list = Book.objects.filter(book=self.get_object())
+        # return super(BookDetailView,self).get_context_data(object_list=object_list, bookshelf=bookshelf,**kwargs)
         context = super().get_context_data(**kwargs)
         return super(BookDetailView, self).get_context_data(context=context, bookshelf=bookshelf,**kwargs)

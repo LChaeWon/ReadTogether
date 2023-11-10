@@ -2,30 +2,40 @@
 
 {% block content %}
 
-    <div>
-        <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-            <img>
-        <div><img src="{{ target_book.image.url }}"/></div>
+
+
+
+
+
+
+
+
+<div style="text-align:center; margin: 6rem 0rem 2rem 5rem ; float: left; width: 33%;">
+
+<img src="{{ target_book.image.url }}"/>
             </img>
-            <h2>
+</div>
+<div style="float: left; margin: 6rem 2rem 1rem 0rem ;width: 33%; ">
+   <h2>
                 {{ target_book.title }}
             </h2>
-            <h2>
+           <h5>
                 {{ target_book.writer }}
-            </h2>
-            <h2>
-                {{ target_book.keyword }}
-            </h2>
+            </h5>
+       {%if user.is_authenticated %}
             {% if not bookshelf %}
-            <a href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
+            <a class="btn btn-dark rounded-pill col-6 mt-3" href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
                 내 책장 담기
             </a>
             {% else %}
-            <a href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
+            <a class="btn btn-dark rounded-pill col-6 mt-3" href="{% url 'bookshelfapp:mybookshelf' %}?book_pk={{target_book.pk }}">
                 내 책장에서 삭제
             </a>
             {% endif %}
-        </div>
-    </div>
+            {% endif %}
+</div>
+
+
+
 
 {% endblock %}

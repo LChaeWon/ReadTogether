@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -9,32 +10,29 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            {% for book in book_list %}
-        <div><img class="card-img-top" src="{{ book.image.url }}"/></div>
+                                {% for mybook in mybook_list %}
+        <div><img class="card-img-top" src="{{ mybook.book.image.url }}"/></div>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                      <a style="text-decoration:none; color: black" href="{% url 'bookapp:detail' pk=book.pk %}">
-                                    <h5 class="fw-bolder">{{ book.title }}</h5>
-                                      </a>
+                                    <h5 class="fw-bolder">{{ mybook.book.title }}</h5>
                                     <!-- Product price-->
-                                    {{ book.writer }}
+                                     <h5>{{ mybook.book.writer }}</h5>
                                 </div>
                             </div>
                             <!-- Product actions-->
-
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                     {% endfor %}
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 </div>
+
 {% endblock %}
 
