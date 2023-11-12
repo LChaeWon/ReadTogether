@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+<div style="text-align:center; margin: 6rem 0rem 2rem 5rem ; float: left; width: 33%;">
+
+<img src="{{ target_book.image.url }}"/>
+            </img>
+     <h2>
+                {{ target_book.title }}
+            </h2>
+           <h5>
+                {{ target_book.writer }}
+            </h5>
+</div>
+<div style="float: left; margin: 6rem 2rem 1rem 0rem ;width: 33%; ">
+
+
+
+
+
+{% for bookshelf in target_book.bookshelf.all %}
+    {% include 'bookshelfapp/reviewdetail.html' with boolshelf=bookshelf %}
+{% endfor %}
+{% include 'bookshelfapp/write.html' with book=target_book %}
+</div>
+{% endblock %}

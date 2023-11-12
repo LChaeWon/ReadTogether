@@ -1,10 +1,12 @@
 import self as self
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView, RedirectView, ListView
+from django.views.generic import DetailView, RedirectView, ListView, CreateView
 from django.urls import reverse
+from django.views.generic.edit import FormMixin
 
 from bookapp.models import Book
+from bookshelfapp.forms import  WriteForm
 from bookshelfapp.models import Bookshelf
 
 
@@ -32,3 +34,27 @@ class BookshelfListView(ListView):
     def get_queryset(self):
         mybook_list = Bookshelf.objects.filter(user=self.request.user)
         return mybook_list
+
+
+class ReviewWriteView(CreateView):
+    model = Bookshelf
+    form_class = WriteForm
+    template_name = 'bookshelfapp/write.html'
+
+    def form_valid(self, form):
+        temp_review = form.save(commit=False)
+        temp_review.book = Book.objects.get(pk=self.request.POST['book_pk'])
+        temp_review.user = self.request.user
+        temp_review.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('bookshelfapp:review',kwargs={'pk':self.object.book.pk})
+
+
+
+class ReviewDetailView(DetailView, FormMixin):
+    model = Book
+    form_class = WriteForm
+    context_object_name = 'target_book'
+    template_name = 'bookshelfapp/review.html'

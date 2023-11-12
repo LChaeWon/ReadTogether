@@ -18,7 +18,8 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">{{ mybook.book.title }}</h5>
                                     <!-- Product price-->
-                                     <h5>{{ mybook.book.writer }}</h5>
+
+                                    <a href="{% url 'bookshelfapp:review' pk=mybook.book.pk %}"><h5>{{ mybook.book.writer }}</h5></a>
                                 </div>
                             </div>
                             <!-- Product actions-->
