@@ -1,9 +1,8 @@
 from django.forms import ModelForm
-
-from bookshelfapp.models import Bookshelf
+from reviewapp.models import Review
 
 
 class WriteForm(ModelForm):
     class Meta:
-        model = Bookshelf
+        model = Review
         fields = ['review','transcription']

@@ -7,7 +7,9 @@ from bookapp.models import Book
 class Bookshelf(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="bookshelf")
-    review = models.CharField(max_length=200,null=True)
-    transcription = models.CharField(max_length=200,null=True)
+
+
+
+
 
 

@@ -24,5 +24,6 @@ urlpatterns = [
     path('account/', include('accountapp.urls')),
     path('book/', include('bookapp.urls')),
     path('bookshelf/', include('bookshelfapp.urls')),
+    path('review/', include('reviewapp.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

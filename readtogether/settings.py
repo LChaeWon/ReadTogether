@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "accountapp",
     "bookapp",
     "bookshelfapp",
+    "reviewapp"
 ]
 
 MIDDLEWARE = [
