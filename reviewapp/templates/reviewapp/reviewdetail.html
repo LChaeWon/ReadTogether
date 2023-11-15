@@ -1,6 +1,11 @@
 <div>
-    {% if review.review == None %}
-    {% else %}
     {{ review.review }}
-    {% endif %}
+</div>
+<div style="text-align: right">
+    <a href="{% url 'reviewapp:delete' pk=review.pk %}">
+        삭제
+    </a>
+    <a href="{% url 'reviewapp:update' pk=review.pk %}">
+        수정
+    </a>
 </div>

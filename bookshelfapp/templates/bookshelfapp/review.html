@@ -12,9 +12,19 @@
             </h5>
 </div>
 <div style="float: left; margin: 6rem 2rem 1rem 0rem ;width: 33%; ">
-{% for review in target_book.review.all %}
-    {% include 'reviewapp/reviewdetail.html' with review=review %}
-{% endfor %}
-{% include 'reviewapp/write.html' with book=target_book %}
+
+
+
+
+
+{% if target_book.review.count == 0 %}
+    {% include 'reviewapp/write.html' with book=target_book %}
+{% else %}
+    {% for review in target_book.review.all %}
+        {% include 'reviewapp/reviewdetail.html' with review=review %}
+    {% endfor %}
+{% endif %}
+
+
 </div>
 {% endblock %}
