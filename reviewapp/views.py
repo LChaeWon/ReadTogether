@@ -23,7 +23,7 @@ class ReviewWriteView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk, 'u_pk':self.request.user.pk})
 
 
 class ReviewDeleteView(DeleteView):
@@ -32,7 +32,7 @@ class ReviewDeleteView(DeleteView):
     template_name = 'reviewapp/delete.html'
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk})
 
 
 class ReviewUpdateView(UpdateView):
@@ -42,7 +42,7 @@ class ReviewUpdateView(UpdateView):
     template_name = 'reviewapp/update.html'
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk})
 
 
 
@@ -50,4 +50,5 @@ class ReviewDetailView(DetailView, FormMixin):
     model = Book
     form_class = WriteForm
     context_object_name = 'target_book'
-    template_name = 'bookshelfapp/review.html'
+    template_name = 'reviewapp/review.html'
+
