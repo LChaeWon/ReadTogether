@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import CreateView, DeleteView, UpdateView
+from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
+from django.views.generic.edit import FormMixin
 
 from bookapp.models import Book
 from reviewapp.forms import WriteForm
@@ -22,7 +23,7 @@ class ReviewWriteView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('bookshelfapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
 
 
 class ReviewDeleteView(DeleteView):
@@ -31,7 +32,7 @@ class ReviewDeleteView(DeleteView):
     template_name = 'reviewapp/delete.html'
 
     def get_success_url(self):
-        return reverse('bookshelfapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
 
 
 class ReviewUpdateView(UpdateView):
@@ -41,4 +42,12 @@ class ReviewUpdateView(UpdateView):
     template_name = 'reviewapp/update.html'
 
     def get_success_url(self):
-        return reverse('bookshelfapp:review',kwargs={'pk':self.object.book.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk})
+
+
+
+class ReviewDetailView(DetailView, FormMixin):
+    model = Book
+    form_class = WriteForm
+    context_object_name = 'target_book'
+    template_name = 'bookshelfapp/review.html'

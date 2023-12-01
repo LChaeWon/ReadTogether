@@ -2,12 +2,12 @@
 {% load django_bootstrap5 %}
 {% block content %}
 
-<div style="text-align:center; margin: 6rem 0rem 2rem 5rem ; float: left; width: 33%;">
+<div style="text-align:center; margin: 3rem 0rem 2rem 3rem ; float: left; width: 70%; font-family: 'Nanum Myeongjo'">
 
    <form action="{% url 'reviewapp:write' %}" method="post">
        {% csrf_token %}
        {% bootstrap_form form %}
-       <input type="submit">
+       <input class="btn btn-outline-secondary rounded-pill col-2 mt-1" type="submit" value="등록">
        <input type="hidden" name="book_pk" value="{{ book.pk }}">
    </form>
 </div>

@@ -1,11 +1,28 @@
-<div>
-    {{ review.review }}
+
+<div style="font-family: 'Nanum Myeongjo', serif;">
+
+<div style="margin: 6rem 8rem 2rem 7rem">
+    <h2>감상평</h2>
+        {{ review.review }}
 </div>
+
+    <div style="margin: 5rem 6rem 2rem 7rem" >
+                <h2>필사</h2>
+
+            {{ review.transcription }}
+    </div>
+
+</div>
+{% if review.writer == user %}
 <div style="text-align: right">
-    <a href="{% url 'reviewapp:delete' pk=review.pk %}">
+    <a class="btn btn-outline-secondary rounded-pill col-1 mt-1" href="{% url 'reviewapp:delete' pk=review.pk %}">
         삭제
     </a>
-    <a href="{% url 'reviewapp:update' pk=review.pk %}">
+    <a style="margin: 0rem 4rem 0rem 0rem" class="btn btn-outline-secondary rounded-pill col-1 mt-1" href="{% url 'reviewapp:update' pk=review.pk %}">
         수정
     </a>
+
+{% endif %}
 </div>
+
+

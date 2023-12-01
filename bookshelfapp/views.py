@@ -8,6 +8,7 @@ from django.views.generic.edit import FormMixin
 from bookapp.models import Book
 from bookshelfapp.models import Bookshelf
 from reviewapp.forms import WriteForm
+from reviewapp.models import Review
 
 
 class BookShelfView(RedirectView):
@@ -37,8 +38,3 @@ class BookshelfListView(ListView):
 
 
 
-class ReviewDetailView(DetailView, FormMixin):
-    model = Book
-    form_class = WriteForm
-    context_object_name = 'target_book'
-    template_name = 'bookshelfapp/review.html'
