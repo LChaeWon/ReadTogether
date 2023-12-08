@@ -13,14 +13,12 @@
 </div>
 <div style="float: left; margin: 0rem 2rem 1rem 0rem ;width: 59%; ">
 
-{% if target_book.review.writer == user %}
-{% else %}
-       {% include 'reviewapp/write.html' with book=target_book %}
+
 
         {% for review in target_book.review.all %}
         {% include 'reviewapp/reviewdetail.html' with review=review %}
     {% endfor %}
+    {% include 'reviewapp/write.html' with book=target_book %}
 
-{% endif %}
 </div>
 {% endblock %}
