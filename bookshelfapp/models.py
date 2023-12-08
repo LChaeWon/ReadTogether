@@ -1,6 +1,6 @@
-from django.contrib.auth.models import User
 from django.db import models
 
+from accountapp.models import User
 from bookapp.models import Book
 
 

@@ -3,9 +3,20 @@
 
 {% block content %}
 <div>
+
+
+
+         <div class="text-center my-5">
+                <img src={{ user.profile.url }} alt="..." style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom:2rem;"/>
+                <span>
+                    <h5>{{ user.nickname }}</h5>
+                </span>
+                <p>{{ user.email }}</p>
+            </div>
+
     <!-- Section-->
         <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
+            <div class="container px-4 px-lg-5 mt-1">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
                         <div class="card h-100">

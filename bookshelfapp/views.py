@@ -35,6 +35,10 @@ class BookshelfListView(ListView):
     def get_queryset(self):
         mybook_list = Bookshelf.objects.filter(user=self.request.user)
         return mybook_list
+    def index(request):
+        user = self.request.user
+        return user
+
 
 
 

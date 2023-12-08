@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import render
 
@@ -8,7 +7,8 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView, ListView
 
-from accountapp.forms import AccountUpdateForm
+from accountapp.forms import AccountUpdateForm, RegisterForm
+from accountapp.models import User
 from bookapp.models import Book
 
 
@@ -17,7 +17,7 @@ def main_page(request):
 
 class AccountCreateView(CreateView):
     model = User
-    form_class = UserCreationForm
+    form_class = RegisterForm
     success_url = reverse_lazy('accountapp:main')
     template_name = 'accountapp/create.html'
 
@@ -43,5 +43,3 @@ class BookListView(ListView):
     model = Book
     context_object_name = 'book_list'
     template_name = 'accountapp/main_page.html'
-
-
