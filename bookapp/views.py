@@ -19,3 +19,11 @@ class BookDetailView(DetailView):
         # return super(BookDetailView,self).get_context_data(object_list=object_list, bookshelf=bookshelf,**kwargs)
         context = super().get_context_data(**kwargs)
         return super(BookDetailView, self).get_context_data(context=context, bookshelf=bookshelf,**kwargs)
+
+def search(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        books = Book.objects.filter(title__contains=searched)
+        return render(request, 'bookapp/searched.html', {'searched': searched, 'books': books})
+    else:
+        return render(request, 'bookapp/searched.html', {})

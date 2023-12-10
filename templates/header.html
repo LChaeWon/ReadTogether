@@ -1,12 +1,7 @@
 <div class="readtogether_header">
     <a style="text-decoration:none; color: black" href="{% url 'accountapp:main' %}">
     <span style="font-size: 2rem; margin: 0rem 5rem">독서남북</span>
-    </a>
-    <span >함께 독서하기</span>
-        <a style="text-decoration:none; color: black" href="{% url 'bookshelfapp:list' %}">
 
-    <span  style="margin: 0rem 5rem; ">내 책장</span>
-        </a>
     {% if not user.is_authenticated %}
     <a style="text-decoration:none; color: black" href="{% url 'accountapp:login' %}">
         <span style="margin:0rem 2rem">로그인</span>
@@ -15,11 +10,29 @@
         <span  style="margin:0rem 2rem">회원가입</span>
     </a>
     {% else %}
+        </a>
+    <span >함께 독서하기</span>
+        <a style="text-decoration:none; color: black" href="{% url 'bookshelfapp:list' %}">
+
+    <span  style="margin: 0rem 5rem; ">내 책장</span>
+        </a>
     <a style="text-decoration:none; color: black" href="{% url 'accountapp:detail' pk=user.pk %}">
         <span style="margin:0rem 2rem">마이페이지</span>
     </a>
     <a style="text-decoration:none; color: black" href="{% url 'accountapp:logout' %}">
         <span style="margin:0rem 2rem">로그아웃</span>
     </a>
+
+    <form class="d-flex" method="POST" action="{% url 'bookapp:search' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"> Search </button>
+        </form>
     {% endif %}
+
+
+
 </div>
+
+
+
