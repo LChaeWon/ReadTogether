@@ -1,36 +1,77 @@
-<div class="readtogether_header">
-    <a style="text-decoration:none; color: black" href="{% url 'accountapp:main' %}">
-    <span style="font-size: 2rem; margin: 0rem 5rem">독서남북</span>
+<div style= "margin:2rem;">
+<!--    <a style="text-decoration:none; color: black" href="{% url 'accountapp:main' %}">-->
+<!--    <span style="font-size: 2rem; margin: 0rem 5rem">독서남북</span>-->
 
-    {% if not user.is_authenticated %}
-    <a style="text-decoration:none; color: black" href="{% url 'accountapp:login' %}">
-        <span style="margin:0rem 2rem">로그인</span>
-    </a>
-    <a style="text-decoration:none; color: black" href="{% url 'accountapp:create' %}">
-        <span  style="margin:0rem 2rem">회원가입</span>
-    </a>
-    {% else %}
-        </a>
-    <span >함께 독서하기</span>
-        <a style="text-decoration:none; color: black" href="{% url 'bookshelfapp:list' %}">
+<!--    {% if not user.is_authenticated %}-->
+<!--    <a style="text-decoration:none; color: black" href="{% url 'accountapp:login' %}">-->
+<!--        <span style="margin:0rem 2rem">로그인</span>-->
+<!--    </a>-->
+<!--    <a style="text-decoration:none; color: black" href="{% url 'accountapp:create' %}">-->
+<!--        <span  style="margin:0rem 2rem">회원가입</span>-->
+<!--    </a>-->
+<!--    {% else %}-->
+<!--        </a>-->
+<!--    <span >함께 독서하기</span>-->
+<!--        <a style="text-decoration:none; color: black" href="{% url 'bookshelfapp:list' %}">-->
 
-    <span  style="margin: 0rem 5rem; ">내 책장</span>
-        </a>
-    <a style="text-decoration:none; color: black" href="{% url 'accountapp:detail' pk=user.pk %}">
-        <span style="margin:0rem 2rem">마이페이지</span>
-    </a>
-    <a style="text-decoration:none; color: black" href="{% url 'accountapp:logout' %}">
-        <span style="margin:0rem 2rem">로그아웃</span>
-    </a>
+<!--    <span  style="margin: 0rem 5rem; ">내 책장</span>-->
+<!--        </a>-->
+<!--    <a style="text-decoration:none; color: black" href="{% url 'accountapp:detail' pk=user.pk %}">-->
+<!--        <span style="margin:0rem 2rem">마이페이지</span>-->
+<!--    </a>-->
+<!--    <a style="text-decoration:none; color: black" href="{% url 'accountapp:logout' %}">-->
+<!--        <span style="margin:0rem 2rem">로그아웃</span>-->
+<!--    </a>-->
+<!--    <form class="d-flex" method="POST" action="{% url 'bookapp:search' %}">-->
+<!--            {% csrf_token %}-->
+<!--            <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success" type="submit">검색 </button>-->
+<!--        </form>-->
+<!--    {% endif %}-->
 
-    <form class="d-flex" method="POST" action="{% url 'bookapp:search' %}">
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="margin: 0rem 2rem; font-size: 30px" href="{% url 'accountapp:main' %}">독서남북</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if not user.is_authenticated %}
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="{% url 'accountapp:login' %}">로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="{% url 'accountapp:create' %}">회원가입</a>
+       </li>
+              {% else %}
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="#">함께 독서하기</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="{% url 'bookshelfapp:list' %}">내 책장</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="{% url 'accountapp:detail' pk=user.pk %}">마이페이지</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="margin: 0rem 2rem;" href="{% url 'accountapp:logout' %}">로그아웃</a>
+        </li>
+                  {% endif %}
+
+      </ul>
+     <form class="d-flex" method="POST" action="{% url 'bookapp:search' %}">
             {% csrf_token %}
             <input class="form-control me-2" type="search" placeholder="Search" name="searched" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"> Search </button>
+            <button class="btn btn-outline-success" type="submit">검색 </button>
         </form>
-    {% endif %}
-
-
+    </div>
+  </div>
+</nav>
 
 </div>
 
