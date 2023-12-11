@@ -9,6 +9,8 @@
        {% bootstrap_form form %}
        <input type="submit">
        <input type="hidden" name="book_pk" value="{{ book.pk }}">
+              <input type="hidden" name="bookshelf_pk" value="{{ bookshelf.pk }}">
+
    </form>
 </div>
 {% endblock %}

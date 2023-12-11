@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="text-align:center; margin: 4rem 0rem 2rem 6rem ; float: left; width: 33%;>
+<div style="text-align:center; margin: 4rem 0rem 2rem 6rem ; float: left; width: 33%;">
 
 <img style="width:23rem" src="{{ target_book.image.url }}"/>
-            </img>
+
+
+
      <h2 style="margin: 1rem">
                 {{ target_book.title }}
             </h2>
@@ -11,6 +13,7 @@
                 {{ target_book.writer }}
             </h5>
 </div>
+
 <div style="float: left; margin: 0rem 2rem 1rem 0rem ;width: 59%; ">
 
 
@@ -19,6 +22,7 @@
         {% include 'reviewapp/reviewdetail.html' with review=review %}
     {% endfor %}
     {% include 'reviewapp/write.html' with book=target_book %}
+
 
 </div>
 {% endblock %}

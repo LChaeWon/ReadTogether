@@ -26,7 +26,7 @@
                                     <h5 class="fw-bolder">{{ mybook.book.title }}</h5>
                                     <!-- Product price-->
 
-                                    <a style="text-decoration:none; color: black"href="{% url 'reviewapp:review' pk=mybook.book.pk u_pk=mybook.user.pk%}"><h5>{{ mybook.book.writer }}</h5></a>
+                                    <a style="text-decoration:none; color: black"href="{% url 'reviewapp:review' pk=mybook.book.pk u_pk=mybook.user.pk b_pk=mybook.pk %}"><h5>{{ mybook.book.writer }}</h5></a>
                                 </div>
                             </div>
                             <!-- Product actions-->

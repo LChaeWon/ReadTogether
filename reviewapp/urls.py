@@ -8,6 +8,6 @@ urlpatterns = [
     path('write/', ReviewWriteView.as_view(), name='write'),
     path('delete/<int:pk>', ReviewDeleteView.as_view(), name='delete'),
     path('update/<int:pk>', ReviewUpdateView.as_view(), name='update'),
-    path('review/<int:pk>/<int:u_pk>', ReviewDetailView.as_view(), name='review')
+    path('review/<int:pk>/<int:u_pk>/<int:b_pk>', ReviewDetailView.as_view(), name='review')
 
 ]

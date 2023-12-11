@@ -5,6 +5,7 @@ from django.views.generic import CreateView, DeleteView, UpdateView, DetailView
 from django.views.generic.edit import FormMixin
 
 from bookapp.models import Book
+from bookshelfapp.models import Bookshelf
 from reviewapp.forms import WriteForm
 from reviewapp.models import Review
 from django.urls import reverse
@@ -19,11 +20,12 @@ class ReviewWriteView(CreateView):
         temp_review = form.save(commit=False)
         temp_review.book = Book.objects.get(pk=self.request.POST['book_pk'])
         temp_review.writer = self.request.user
+        temp_review.bookshelf = Bookshelf.objects.get(book_id=temp_review.book, user_id=temp_review.writer)
         temp_review.save()
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk, 'u_pk':self.request.user.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk, 'u_pk':self.request.user.pk, 'b_pk':self.object.bookshelf.pk})
 
 
 class ReviewDeleteView(DeleteView):

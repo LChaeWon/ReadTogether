@@ -5,7 +5,7 @@ from bookapp.models import Book
 
 
 class Bookshelf(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookshelf")
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="bookshelf")
 
 
