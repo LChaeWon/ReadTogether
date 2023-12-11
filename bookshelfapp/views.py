@@ -1,6 +1,7 @@
 import self as self
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.views import View
 from django.views.generic import DetailView, RedirectView, ListView, CreateView
 from django.urls import reverse
 from django.views.generic.edit import FormMixin
@@ -38,6 +39,7 @@ class BookshelfListView(ListView):
     def index(request):
         user = self.request.user
         return user
+
 
 
 

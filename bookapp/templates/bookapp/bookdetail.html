@@ -41,7 +41,7 @@ flex: 1;
 {% for review in target_book.review.all %}
     <div style="margin: 2rem 0rem">
          <img src={{ review.writer.profile.url }} alt="" style="height: 4rem; width: 4rem; border-radius: 10rem;display:inline"/>
-        <h5 style="display:inline">&nbsp{{ review.writer.nickname }}</h5>
+        <a href=""><h5 style="display:inline">&nbsp{{ review.writer.nickname }}</h5></a>
         <p class="indent"></p>
         <p>{{ review.review }}</p>
     </div>

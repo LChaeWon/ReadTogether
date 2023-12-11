@@ -23,8 +23,8 @@ class AccountUpdateForm(UserCreationForm):
 
 class RegisterForm(forms.ModelForm):
     """ Create a new user """
-    password = forms.CharField(label='password', widget=forms.PasswordInput)
-    confirm_password = forms.CharField(label='confirm password', widget=forms.PasswordInput)
+    password = forms.CharField(label='비밀번호', widget=forms.PasswordInput)
+    confirm_password = forms.CharField(label='비밀번호 확인', widget=forms.PasswordInput)
 
     class Meta:
         model = User

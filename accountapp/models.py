@@ -39,9 +39,9 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username_validator = UnicodeUsernameValidator()
 
-    nickname = models.CharField(_("nickname"), max_length=50, validators=[username_validator], blank=True)
-    email = models.EmailField(_("email_address"), unique=True)
-    profile = models.ImageField(upload_to='profile/',null=True)
+    nickname = models.CharField(_("닉네임"), max_length=50, validators=[username_validator], blank=True)
+    email = models.EmailField(_("이메일"), unique=True)
+    profile = models.ImageField(_("프로필 사진"), upload_to='profile/',null=True)
     is_staff = models.BooleanField(_("staff status"), default=False)
     is_active = models.BooleanField(_("active"), default=True)
     date_joined = models.DateTimeField(_("date joined"), default=timezone.now)
