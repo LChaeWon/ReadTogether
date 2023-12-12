@@ -2,26 +2,36 @@
 
 {% block content %}
 
+
+
     <div>
+                 <div class="text-center my-5">
+                <img src={{ user.profile.url }} alt="..." style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom:2rem;"/>
+                <span>
+                    <h5>{{ user.nickname }}</h5>
+                </span>
+                <p>{{ user.email }}</p>
+         </div>
         <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-            <p>
-                {{ target_user.date_joined }}
-            </p>
-            <h2>
-                {{ target_user.username }}
-            </h2>
 
             {% if target_user == user %}
-            <a href="{% url 'accountapp:update' pk=user.pk %}">
+<div>
+            <button style="width: 8rem; margin-bottom: 1rem" type="button" class="btn btn-outline-secondary"> <a href="{% url 'accountapp:update' pk=user.pk %}" style="text-decoration:none; color: black">
                 <p>
                     정보 변경하기
                 </p>
-            </a>
-            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+            </a></button>
+</div>
+<div>
+            <button type="button" class="btn btn-outline-secondary" style="width: 8rem">
+
+            <a href="{% url 'accountapp:delete' pk=user.pk %}" style="text-decoration:none; color: black; ">
                 <p>
                     탈퇴
                 </p>
-            </a>
+                        </a>
+            </button>
+</div>
             {% endif %}
         </div>
     </div>

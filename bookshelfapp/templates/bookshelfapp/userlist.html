@@ -4,11 +4,11 @@
 {% block content %}
 <div>
          <div class="text-center my-5">
-                <img src={{ user.profile.url }} alt="..." style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom:2rem;"/>
+                <img src={{ target_user.profile.url }} alt="..." style="height: 10rem; width: 10rem; border-radius: 10rem; margin-bottom:2rem;"/>
                 <span>
-                    <h5>{{ user.nickname }}</h5>
+                    <h5>{{ target_user.nickname }}</h5>
                 </span>
-                <p>{{ user.email }}</p>
+                <p>{{ target_user.email }}</p>
          </div>
     <!-- Section-->
         <section class="py-5">
@@ -18,7 +18,7 @@
                         <div class="card h-100">
                             <!-- Product image-->
 
-                                {% for mybook in mybook_list %}
+                                {% for mybook in userbook_list %}
         <div><img class="card-img-top" src="{{ mybook.book.image.url }}"/></div>
                             <!-- Product details-->
                             <div class="card-body p-4">
