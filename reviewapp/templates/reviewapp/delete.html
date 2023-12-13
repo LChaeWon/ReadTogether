@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form action="{% url 'reviewapp:delete' pk=target_review.pk %}" method="post">
+<form action="{% url 'reviewapp:delete' pk=target_review.pk %}" method="post" style="text-align: center">
     {% csrf_token %}
-    <input type="submit">
+    <h1 style="margin: 6rem">작성한 글을 삭제하시겠습니까?</h1>
+    <input style="width:5rem ;height: 2.5rem; font-size: 25px" value="삭제" type="submit">
 </form>
 {% endblock %}

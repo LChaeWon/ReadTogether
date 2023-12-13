@@ -1,6 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="text-align:center; margin: 4rem 0rem 2rem 6rem ; float: left; width: 33%;">
+
+
+
+<style>
+.parent {
+    display: flex;
+    }
+.parent .child{
+flex: 1;
+
+}
+
+
+</style>
+<div class="parent">
+
+
+    <div class='child' >
+
+<div style="text-align:center; margin: 4rem 0rem 2rem 6rem ; float: left; width: 30%;">
 
 <img style="width:23rem" src="{{ target_book.image.url }}"/>
 
@@ -23,6 +42,11 @@
     {% endfor %}
     {% include 'reviewapp/write.html' with book=target_book %}
 
+
+</div>
+
+
+</div>
 
 </div>
 {% endblock %}

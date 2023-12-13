@@ -34,7 +34,7 @@ class ReviewDeleteView(DeleteView):
     template_name = 'reviewapp/delete.html'
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk, 'b_pk':self.object.bookshelf.pk})
 
 
 class ReviewUpdateView(UpdateView):
@@ -44,7 +44,7 @@ class ReviewUpdateView(UpdateView):
     template_name = 'reviewapp/update.html'
 
     def get_success_url(self):
-        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk})
+        return reverse('reviewapp:review',kwargs={'pk':self.object.book.pk,'u_pk':self.request.user.pk, 'b_pk':self.object.bookshelf.pk})
 
 
 
